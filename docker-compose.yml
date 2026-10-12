@@ -1,0 +1,24 @@
+services:
+  postgres:
+    # Официальный легкий образ PostgreSQL 16
+    image: postgres:16-alpine
+    container_name: library-postgres
+    environment:
+      # При первом старте создаются БД и пользователь
+      POSTGRES_DB: library_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      # Именованный том - данные переживают перезапуск контейнера
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      # Compose знает, когда БД реально готова принимать соединения
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d library_db" ]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  pgdata:
