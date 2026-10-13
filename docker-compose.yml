@@ -9,6 +9,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
+      # Хост для контейнера - приложение ходит на localhost:5433
       - "5433:5432"
     volumes:
       # Именованный том - данные переживают перезапуск контейнера
