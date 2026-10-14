@@ -72,7 +72,7 @@ public class BookService {
      *
      * @param id      Id записи о книге
      * @param request новый статус и ожидаемая версия
-     * @return обновлённая книга
+     * @return обновленная книга
      * @throws BookByIdNotFoundException      если книги нет
      * @throws BookByVersionNotFoundException если версия устарела
      * @throws NullPointerException           если входной параметр null

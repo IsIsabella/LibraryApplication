@@ -7,7 +7,7 @@
 
     <changeSet id="1" author="e.basalaeva">
         <createTable tableName="books">
-            <!-- books_id выдаёт БД, как GenerationType.IDENTITY -->
+            <!-- books_id выдает БД, как GenerationType.IDENTITY -->
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true"
                              nullable="false"/>

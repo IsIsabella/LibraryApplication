@@ -27,7 +27,7 @@ public class BookController {
     private final BookService bookService;
 
     /**
-     * Создаёт REST-контроллер записей
+     * Создает REST-контроллер записей
      *
      * @param bookService сервис книг
      * @throws NullPointerException если входной параметр null
@@ -91,7 +91,7 @@ public class BookController {
     /**
      * Запрос DELETE /api/books/{id}?version=N удаляет запись
      * <p>
-     * Без version обязателен: без него Spring вернёт 400
+     * Без version обязателен: без него Spring вернет 400
      * </p>
      *
      * @param id      идентификатор

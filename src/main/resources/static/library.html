@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Библиотека</title>
+  <link rel="stylesheet" href="/css/library.css">
+</head>
+<body>
+<!-- Страница -->
+<main class="page">
+  <h1>Библиотека</h1>
+
+  <!-- Кнопки -->
+  <div class="toolbar">
+    <button id="btn-add" class="btn btn-primary" type="button">Добавить</button>
+    <button id="btn-delete" class="btn btn-danger" type="button" disabled>Удалить</button>
+  </div>
+
+  <!-- Таблица -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+      <tr>
+        <th class="col-active">Активно</th>
+        <th class="col-icon">Иконка</th>
+        <th>Название</th>
+        <th>Описание</th>
+      </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <p id="empty" class="empty" hidden>Нажмите «Добавить», чтобы добавить первую книгу</p>
+  </div>
+</main>
+
+<!-- Всплывающее уведомление -->
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<!-- Модальное окно создания -->
+<dialog id="dlg-create">
+  <form id="create-form" novalidate>
+    <h2>Новая книга</h2>
+
+    <!-- Чекбокс для статуса активности -->
+    <label class="check"><input type="checkbox" id="f-active"> Активно</label>
+
+    <div class="field">
+      <span class="label" id="icon-label">Иконка</span>
+      <!-- Выпадающий список с выбором иконки-->
+      <div class="dropdown">
+        <button type="button" id="icon-btn" class="dropdown-btn" aria-haspopup="listbox"
+                aria-expanded="false" aria-labelledby="icon-label icon-btn">
+          <img id="icon-btn-img" width="32" height="32" alt="">
+          <span id="icon-btn-label"></span>
+        </button>
+        <ul id="icon-list" class="dropdown-list" role="listbox" hidden></ul>
+      </div>
+    </div>
+
+    <label class="field">
+      <span class="label">Название</span>
+      <input type="text" id="f-name" maxlength="255" autocomplete="off"
+             placeholder="Например: Мастер и Маргарита">
+    </label>
+
+    <label class="field">
+      <span class="label">Описание</span>
+      <textarea id="f-desc" rows="3" maxlength="2000"
+                placeholder="Автор, жанр, краткое содержание"></textarea>
+    </label>
+
+    <p id="create-error" class="form-error" role="alert"></p>
+
+    <div class="actions">
+      <button type="button" id="btn-cancel" class="btn">Отмена</button>
+      <button type="submit" id="btn-create" class="btn btn-primary">Создать</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- Подтверждение удаления -->
+<dialog id="dlg-confirm">
+  <h2>Удаление книги</h2>
+  <p id="confirm-text"></p>
+  <div class="actions">
+    <button type="button" id="btn-confirm-no" class="btn">Отмена</button>
+    <button type="button" id="btn-confirm-yes" class="btn btn-danger">Удалить</button>
+  </div>
+</dialog>
+
+<script src="/js/library.js"></script>
+</body>
+</html>

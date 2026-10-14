@@ -28,7 +28,7 @@ public interface IBookRepository extends JpaRepository<Book, Long> {
      *
      * @param id      идентификатор
      * @param version ожидаемая версия
-     * @return число удалённых строк
+     * @return число удаленных строк
      */
     @Modifying
     @Query("delete from Book i where i.id = :id and i.version = :version")

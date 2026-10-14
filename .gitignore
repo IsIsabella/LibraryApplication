@@ -4,9 +4,6 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-#Сгенерированный HELP
-HELP.md
-
 #Логи и временные файлы
 *.log
 *.tmp
