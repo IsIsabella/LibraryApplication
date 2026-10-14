@@ -136,7 +136,6 @@
   // Выбор строки
   function select(id) {
     state.selectedId = state.selectedId === id ? null : id;
-    state.pending.has(book.id);
     render();
   }
 
